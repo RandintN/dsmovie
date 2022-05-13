@@ -1,6 +1,8 @@
 package software.robsoncassiano.learn.dsmovie.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_movie")
@@ -12,6 +14,9 @@ public class Movie {
     private String image;
     private Double score;
     private Integer count;
+
+    @OneToMany(mappedBy = "id.movie")
+    private final Set<Score> scores = new HashSet<>();
 
     public Movie() {
     }
@@ -62,5 +67,9 @@ public class Movie {
 
     public void setCount(Integer count) {
         this.count = count;
+    }
+
+    public Set<Score> getScores() {
+        return scores;
     }
 }
