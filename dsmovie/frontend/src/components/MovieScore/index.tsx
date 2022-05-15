@@ -1,4 +1,3 @@
-import { useState } from "react";
 import MovieStars from "../MovieStars";
 import "./styles.css"
 
